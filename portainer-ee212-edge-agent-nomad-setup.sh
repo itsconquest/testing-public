@@ -62,7 +62,7 @@ main() {
 
   info "Downloading agent jobspec..."
   #cp portainer-agent-ee212-edge-nomad.hcl portainer-agent-edge-nomad.hcl
-  curl -L https://raw.githubusercontent.com/mcpacino/test/master/portainer-agent-ee212-edge-nomad.hcl -o portainer-agent-edge-nomad.hcl || errorAndExit "Unable to download agent jobspec"
+  curl -L https://raw.githubusercontent.com/itsconquest/testing-public/main/portainer-agent-ee212-edge-nomad.hcl -o portainer-agent-edge-nomad.hcl || errorAndExit "Unable to download agent jobspec"
 
   info "Deploying agent..."
   nomad job run -address "$NOMAD_ADDRESS" -var "NOMAD_ADDRESS=$NOMAD_ADDRESS" -var "EDGE_ID=$EDGE_ID" -var "EDGE_KEY=$EDGE_KEY" -var "EDGE_INSECURE_POLL=$EDGE_INSECURE_POLL" portainer-agent-edge-nomad.hcl || errorAndExit "Unable to deploy agent jobspec"
